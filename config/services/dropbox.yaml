@@ -1,0 +1,14 @@
+service: "Dropbox"
+rules:
+  - name: "DetectionRule1"
+    conditions:
+      - field: "SenderAddress"
+        regex: "^.*@dropbox.com$"
+      - field: "Subject"
+        regex: ".*shared file.*"
+    confidence: 100
+  - name: "DetectionRule2"
+    conditions:
+      - field: "SenderAddress"
+        regex: "^.*@dropboxusercontent.com$"
+    confidence: 90

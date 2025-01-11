@@ -1,0 +1,12 @@
+azure:
+  tenant_id: "ADD"
+  client_id: "ADD"
+  client_secret: "ADD"
+database:
+  path: "./../../"
+serviceDefinitions:
+  path: "./../../config/services"
+scan:
+  interval: 30m
+graph:
+  api_management_url: "https://reports.office365.com/ecp/reportingwebservice/reporting.svc/MessageTrace" # Full API endpoint without version

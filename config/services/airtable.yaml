@@ -1,0 +1,41 @@
+service: "Airtable"
+rules:
+  - name: "Detect Airtable Notifications"
+    conditions:
+      - field: "SenderAddress"
+        regex: ".*@airtable.com$"  # Matches any email from airtable.com
+      - field: "Subject"
+        regex: ".*Airtable notification.*|.*collaborator update.*|.*base shared.*"  # Common notification subjects
+    confidence: 90
+
+  - name: "Detect Airtable Alerts"
+    conditions:
+      - field: "SenderAddress"
+        regex: ".*@airtable.com$"
+      - field: "Subject"
+        regex: ".*error.*|.*issue.*|.*problem with your base.*|.*automation failed.*"  # Subjects indicating errors or alerts
+    confidence: 95
+
+  - name: "Detect Airtable Invitations"
+    conditions:
+      - field: "SenderAddress"
+        regex: ".*@airtable.com$"
+      - field: "Subject"
+        regex: ".*invitation.*|.*collaborator.*|.*join.*|.*shared base.*"  # Invitations to collaborate or shared bases
+    confidence: 20
+
+  - name: "Detect Airtable Automations"
+    conditions:
+      - field: "SenderAddress"
+        regex: ".*@airtable.com$"
+      - field: "Subject"
+        regex: ".*Automation triggered.*|.*Automation run failed.*|.*Automation completed.*"  # Automation-related subjects
+    confidence: 95
+
+  - name: "Detect Airtable Email Confirmation"
+    conditions:
+      - field: "SenderAddress"
+        regex: ".*@airtable.com$"
+      - field: "Subject"
+        regex: ".*Please confirm your email*"  # Email confirmation requests
+    confidence: 90

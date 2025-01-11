@@ -1,0 +1,30 @@
+service: "Zapier"
+rules:
+  - name: "General Zapier Notifications"
+    conditions:
+      - field: "SenderAddress"
+        regex: ".*zapier.com$"  # Matches any email from zapier.com
+    confidence: 5
+  - name: "Detect Zapier Notifications"
+    conditions:
+      - field: "SenderAddress"
+        regex: ".*@zapier.com$"  # Matches any email from zapier.com
+      - field: "Subject"
+        regex: ".*Zap successful.*|.*Zap failed.*|.*Zap completed.*"  # Common Zapier-related subject patterns
+    confidence: 50
+
+  - name: "Detect Zapier Alerts"
+    conditions:
+      - field: "SenderAddress"
+        regex: ".*@zapier.com$"  # Matches any email from zapier.com
+      - field: "Subject"
+        regex: ".*Alert.*|.*Error.*|.*Issue with your Zap.*"  # Zapier alert-related subjects
+    confidence: 50
+
+  - name: "Detect Zapier Invitations"
+    conditions:
+      - field: "SenderAddress"
+        regex: ".*@zapier.com$"
+      - field: "Subject"
+        regex: ".*invitation.*|.*join.*|.*shared Zap.*"  # Invitations or shared Zap messages
+    confidence: 50

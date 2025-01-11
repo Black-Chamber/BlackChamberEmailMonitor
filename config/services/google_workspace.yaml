@@ -1,0 +1,16 @@
+service: "Google Workspace"
+rules:
+  - name: "Google Workspace Verify Email"
+    conditions:
+      - field: "SenderAddress"
+        regex: "^.*googleworkspace-noreply@google.com$"
+      - field: "Subject"
+        regex: ".*Verify your email.*"
+    confidence: 40
+  - name: "Google Workspace Verify Email"
+    conditions:
+      - field: "SenderAddress"
+        regex: "^.*@google.com$"
+      - field: "Subject"
+        regex: ".*Verify your email.*"
+    confidence: 40

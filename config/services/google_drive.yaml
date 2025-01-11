@@ -1,0 +1,9 @@
+service: "Google Drive"
+rules:
+  - name: "DetectionRule1"
+    conditions:
+      - field: "SenderAddress"
+        regex: "^.*@drive.google.com$"
+      - field: "Subject"
+        regex: ".*shared document.*"
+    confidence: 30

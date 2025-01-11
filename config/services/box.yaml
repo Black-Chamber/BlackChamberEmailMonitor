@@ -1,0 +1,37 @@
+service: "Box"
+rules:
+  - name: "Box Signup"
+    conditions:
+      - field: "SenderAddress"
+        regex: "^.*@box.com$"
+      - field: "Subject"
+        regex: ".*complete your Box signup.*"
+        confidence: 50
+  - name: "Box Collaborate Invite"
+    conditions:
+      - field: "SenderAddress"
+        regex: "^.*@box.com$"
+      - field: "Subject"
+        regex: ".*invited you to collaborate on Box.*"
+        confidence: 50
+  - name: "Box Collaborate Message"
+    conditions:
+      - field: "SenderAddress"
+        regex: "^.*@box.com$"
+      - field: "Subject"
+        regex: ".*Someone mentioned you.*"
+        confidence: 80
+  - name: "Box Collaborate Invite Acceptence"
+    conditions:
+      - field: "SenderAddress"
+        regex: "^.*@box.com$"
+      - field: "Subject"
+        regex: ".*has accepted the invitation.*"
+        confidence: 80
+  - name: "Box Items Deleted"
+    conditions:
+      - field: "SenderAddress"
+        regex: "^.*@box.com$"
+      - field: "Subject"
+        regex: ".*Items were deleted from.*"
+        confidence: 80
