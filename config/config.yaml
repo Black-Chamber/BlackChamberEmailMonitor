@@ -5,8 +5,8 @@ azure:
 database:
   path: "./../../"
 serviceDefinitions:
-  path: "./../../config/services"
+  path: "../../config/detectionRules"
 scan:
-  interval: 30m
+  interval: 30m # Interval to scan new message  m = minutes, h = hours
 graph:
   api_management_url: "https://reports.office365.com/ecp/reportingwebservice/reporting.svc/MessageTrace" # Full API endpoint without version

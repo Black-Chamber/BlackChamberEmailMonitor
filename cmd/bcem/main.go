@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	configPath := flag.String("cfg", "../../config/tenant1.yml", "Path to the configuration file")
+	configPath := flag.String("cfg", "../../config/config.yaml", "Path to the configuration file")
 	flag.Parse()
 	AppConfig, err := config.LoadConfig(*configPath)
 	if err != nil {
@@ -31,8 +31,8 @@ func main() {
 		log.Fatalf("Failed to load detection rules: %v", err)
 	}
 
-	// Define the initial trace start time as interval duration ago from now
-	var initialTraceStartTime = (time.Now().UTC().Add(-AppConfig.Scan.Interval))
+	// Define grab tracer log from 6 hours ago till now
+	var initialTraceStartTime = (time.Now().UTC().Add(-6 * time.Hour))
 
 	// Instant results for the first run
 	scheduledStartTime, err := processInstance(instance, allRules, db, initialTraceStartTime)
