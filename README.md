@@ -5,14 +5,14 @@ Shadow IT and SaaS via Email Log Monitoring
 
 
 ## Overview
-Black Chamber is tool designed to help IT teams detect unauthorized SaaS usage within an organization's. It current function is to provide a lackluster but free method detecting Shadow IT in organizations where networking monitoring is not enough (BYOD). 
+Black Chamber is a tool designed to help IT teams detect unauthorized SaaS usage within an organization. Its current function is to provide a lackluster but free method detecting Shadow IT when agent based and networking monitoring is not enough (BYOD). 
 
-Black Chamber uses community managed detection rules (regex) in order to log the detected message id, recipent and suspected service.
+Black Chamber uses community driven detection rules (basic regex) in order to log the detected message id, recipent and suspected SaaS service.
 
 ## Contributing 
 Please use the development branch
 
-This tool isnt much, but it has the potential help many organizations manage risks with no additional costs. While selecting the methodology of interfacing with M365 MessageTrace was selected becuase it was available to all organizations regardless of license (vs EDiscovery Components)
+This tool isnt much, but it has the potential help many organizations manage risk with no additional costs. While selecting the methodology of detection, M365 MessageTrace was selected becuase it was available to all organizations regardless of license (vs EDiscovery Components)
 
 **Anyone can help this project immensely by identifying risky SaaS technologies and creating regex detection rules under Services**
 
@@ -21,7 +21,7 @@ This tool isnt much, but it has the potential help many organizations manage ris
 
 ![image](https://github.com/user-attachments/assets/ca870cad-13b7-4aca-8f03-cd53ce226a62)
 
-Black Chamber connects to the outlook reporting service at regular intervals to grab messagetrace information. While this does not contain the message content, it provides the sender and recipent infromation in addition to the subject. This is more than enough to determine of mark recipents who may be using unauthorized SaaS applications
+Black Chamber connects to the outlook reporting service at regular intervals to grab messagetrace logs. While this does not contain the message content, it provides the sender and recipent information in addition to the subject. This is more than enough to flag recipents who may be using unauthorized SaaS applications
 
 **Example:** A recipent recieving a notification that someone has accepted the invite to join a file sharing site.
 
